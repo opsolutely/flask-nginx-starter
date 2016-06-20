@@ -1,0 +1,7 @@
+files:
+    - /var/log/*
+destination:
+    host: logs.papertrailapp.com
+    port: 1234
+    protocol: tls
+hostname: example.com

@@ -15,6 +15,9 @@ RUN mkdir /opt/code
 # Add logging conf file
 RUN wget -O ./remote_syslog.tar.gz https://github.com/papertrail/remote_syslog2/releases/download/v0.17/remote_syslog_linux_amd64.tar.gz && tar xzf ./remote_syslog.tar.gz && cp ./remote_syslog/remote_syslog /usr/bin/remote_syslog && rm ./remote_syslog.tar.gz && rm -rf ./remote_syslog/
 
+# Add remote syslog config files
+COPY ./docker_files/log_files.yml /etc/log_files.yml
+
 # Add service.conf
 COPY ./docker_files/service.conf /opt/code/
 RUN ln -s /opt/code/service.conf /etc/nginx/sites-enabled/
