@@ -16,15 +16,15 @@ RUN mkdir /opt/code
 RUN wget -O ./remote_syslog.tar.gz https://github.com/papertrail/remote_syslog2/releases/download/v0.17/remote_syslog_linux_amd64.tar.gz && tar xzf ./remote_syslog.tar.gz && cp ./remote_syslog/remote_syslog /usr/bin/remote_syslog && rm ./remote_syslog.tar.gz && rm -rf ./remote_syslog/
 
 # Add service.conf
-COPY ./files/service.conf /opt/code/
+COPY ./docker_files/service.conf /opt/code/
 RUN ln -s /opt/code/service.conf /etc/nginx/sites-enabled/
 
 # Add supervisor
-COPY ./files/supervisord.conf /opt/code/
+COPY ./docker_files/supervisord.conf /opt/code/
 RUN ln -s /opt/code/supervisord.conf /etc/supervisor/conf.d/
 
 # Add requirements and install
-COPY ./files/requirements.txt /opt/code/
+COPY ./docker_files/requirements.txt /opt/code/
 RUN pip install -r /opt/code/requirements.txt
 
 # Add github repo code to code file
