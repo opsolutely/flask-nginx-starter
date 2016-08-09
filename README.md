@@ -10,7 +10,7 @@ Setting up local installations on a Mac
 5.  brew install openssl
 6.  If you don't have python virtualenvs setup, follow the instructions here (starting at installing virtualenv): https://newcoder.io/pyladiessf
 7.  mkvirtualenv deploy
-8.  pip install -r ./local_files/requirements.txt
+8.  pip install -r ./docker_files/requirements.txt
 
 Creating a Local Database
 =========================
