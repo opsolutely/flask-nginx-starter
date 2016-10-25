@@ -10,7 +10,7 @@
 
 ## Step 2
 In Opsolutely, select the repository to deploy, and when the you specify the dockerfile location, set up two Volumes:
-Make the contents of `opsolutely/flask-nginx-starter/docker_files/supervisord.conf` available in the container at `/opt/code/`, and make `opsolutely/flask-nginx-starter/docker_files/service.conf` also available at `/opt/code/`. (You could alternatively add this in the dockerfile directly, but this is a nice way to try out the UI.)
+Make the contents of `opsolutely/flask-nginx-starter/docker_files/supervisord.conf` available in the container at `/etc/supervisor/conf.d/supervisord.conf`, and make `opsolutely/flask-nginx-starter/docker_files/service.conf` also available at `/etc/nginx/sites-enabled/service.conf`. (You could alternatively add this in the dockerfile directly, but this is a nice way to try out the UI.)
 
 ## Step 3
 Answer a few painless questions, and click deploy! :rocket:
