@@ -1,24 +1,19 @@
 # flask-nginx-starter
  A starter repo for a flask + nginx Docker container
 
-Setting up local installations on a Mac
-=========================
-1.  You'll need a keys.sh file in the local_files directory.
-2.  PostgresApp needs to be installed on your computer
-3.  brew install postgres
-4.  brew install bcrypt
-5.  brew install openssl
-6.  If you don't have python virtualenvs setup, follow the instructions here (starting at installing virtualenv): https://newcoder.io/pyladiessf
-7.  mkvirtualenv deploy
-8.  pip install -r ./docker_files/requirements.txt
+## Step 1
+- If you want to use this repo as a jumping off point for your repo, duplicate it. (If you forking it, it remains public.) To publicate it, clone the repository, update the git remote, and then push it up as a new repository under the new organization. There are more details [here](https://help.github.com/articles/duplicating-a-repository/)
 
-Creating a Local Database
-=========================
-1.  To create a local database, type: psql -h localhost
-2.  CREATE DATABASE [db_name];
+- If you want to deploy this as an example, and pull the relevant parts into your own flask app, copy the [`Dockerfile`](https://github.com/opsolutely/flask-nginx-starter/blob/master/Dockerfile), [`nginx.conf`](https://github.com/opsolutely/flask-nginx-starter/blob/master/nginx.conf), [`run_local.sh`](https://github.com/opsolutely/flask-nginx-starter/blob/master/run_local.sh), and the [`docker_files` directory](https://github.com/opsolutely/flask-nginx-starter/tree/master/docker_files) into the root of your repository. 
 
-Running the app locally
-=========================
-1.  Run: ./run_local.sh
-2.  Go to localhost:7070 to see your home page!
-3.  Application logs can be accessed with: tail -f ./application.log
+- If you're only demoing, then the easiest thing is to deploy this repository as-is, without duplicating or pulling the configuration into your own repository.
+
+## Step 2
+In Opsolutely, select the repository to deploy, and when the you specify the dockerfile location, set up two Volumes:
+Make the contents of `opsolutely/flask-nginx-starter/docker_files/supervisord.conf` available in the container at `/opt/code/`, and make `opsolutely/flask-nginx-starter/docker_files/service.conf` also available at `/opt/code/`. (You could alternatively add this in the dockerfile directly, but this is a nice way to try out the UI.)
+
+## Step 3
+Answer a few painless questions, and click deploy! :rocket:
+
+
+
